@@ -357,10 +357,19 @@
 
     /* ── SERVICES ── */
     .services { padding: 5.5rem 0; background: var(--white); }
+    .services-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 900px) {
+      .services-layout { grid-template-columns: 1fr; }
     }
     .service-card {
       background: var(--cream);
@@ -973,6 +982,7 @@
       <h2 class="section-title" data-i18n="svc-title">Servicios completos<br>para tu jardín</h2>
       <p class="section-desc" data-i18n="svc-desc">Desde mantenimiento semanal hasta instalación completa de grama — lo hacemos con el mismo nivel de dedicación y excelencia.</p>
     </div>
+    <div class="services-layout">
     <div class="services-grid">
       <div class="service-card featured fade-up">
         <div class="service-icon">
@@ -1023,20 +1033,20 @@
         <p data-i18n="svc6-desc">Cuidamos tu hogar como si fuera el nuestro. Tu jardín es nuestra carta de presentación.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ── GALLERY CAROUSEL ── -->
-<section style="background:var(--white);padding:0 0 4rem;overflow:hidden;">
-  <div style="position:relative;">
-    <div id="galleryTrack" style="display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);">
-      <div style="min-width:100%;"><img src="assets/foto1.webp" alt="Condor Lawn Services" style="width:100%;height:520px;object-fit:cover;display:block;"></div>
-      <div style="min-width:100%;"><img src="assets/foto2.webp" alt="Condor Lawn Services" style="width:100%;height:520px;object-fit:cover;display:block;"></div>
-      <div style="min-width:100%;"><img src="assets/foto3.webp" alt="Condor Lawn Services" style="width:100%;height:520px;object-fit:cover;display:block;"></div>
+    <!-- CAROUSEL COLUMN -->
+    <div style="position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12);">
+      <div id="galleryTrack" style="display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);">
+        <div style="min-width:100%;"><img src="assets/foto1.webp" alt="Condor Lawn Services" style="width:100%;height:580px;object-fit:cover;display:block;"></div>
+        <div style="min-width:100%;"><img src="assets/foto2.webp" alt="Condor Lawn Services" style="width:100%;height:580px;object-fit:cover;display:block;"></div>
+        <div style="min-width:100%;"><img src="assets/foto3.webp" alt="Condor Lawn Services" style="width:100%;height:580px;object-fit:cover;display:block;"></div>
+      </div>
+      <button onclick="galleryGo(-1)" style="position:absolute;top:50%;left:1rem;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:2;">&#8249;</button>
+      <button onclick="galleryGo(1)"  style="position:absolute;top:50%;right:1rem;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:2;">&#8250;</button>
+      <div id="galleryDots" style="position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:2;"></div>
     </div>
-    <button onclick="galleryGo(-1)" style="position:absolute;top:50%;left:1.2rem;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:2;">&#8249;</button>
-    <button onclick="galleryGo(1)"  style="position:absolute;top:50%;right:1.2rem;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:2;">&#8250;</button>
-    <div id="galleryDots" style="position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:2;"></div>
+
+    </div><!-- end services-layout -->
   </div>
 </section>
 <script>
@@ -1051,7 +1061,7 @@
     d.onclick=()=>go(i);
     dotsEl.appendChild(d);
   }
-  function go(n){ cur=(n+total)%total; track.style.transform='translateX(-'+cur*100+'%)'; dotsEl.querySelectorAll('div').forEach((d,i)=>d.style.background=i===cur?'#fff':'rgba(255,255,255,.5)'); }
+  function go(n){ cur=(n+total)%total; track.style.transform='translateX(-'+cur*100+'%)'; dotsEl.querySelectorAll('div').forEach((d,i)=>d.style.background=i===cur?'#2D6A4F':'rgba(0,0,0,.2)'); }
   window.galleryGo=n=>go(cur+n);
   go(0);
   setInterval(()=>go(cur+1),4000);
