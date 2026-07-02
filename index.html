@@ -1006,7 +1006,7 @@
           <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#2D6A4F" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
         </div>
         <h3 data-i18n="svc3-title">Fertilización</h3>
-        <p data-i18n="svc3-desc">Fertilización profesional para mantener tu grama verde, fuerte y resistente. Tratamiento adaptado al tipo de suelo de tu propiedad.</p>
+        <p data-i18n="svc3-desc">Fertilización profesional para mantener tu grama verde, fuerte y resistente.</p>
       </div>
 
       <div class="service-card fade-up">
@@ -1022,7 +1022,7 @@
           <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#2D6A4F" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
         </div>
         <h3 data-i18n="svc5-title">Propiedades Comerciales</h3>
-        <p data-i18n="svc5-desc">Servicio profesional para negocios, condominios y propiedades comerciales. Mantenemos la imagen de tu empresa impecable.</p>
+        <p data-i18n="svc5-desc">Servicio profesional para negocios, urbanizaciones y propiedades comerciales.</p>
       </div>
 
       <div class="service-card fade-up">
@@ -1040,6 +1040,8 @@
         <div style="min-width:100%;"><img src="assets/foto1.webp" alt="Condor Lawn Services" style="width:100%;height:580px;object-fit:cover;display:block;"></div>
         <div style="min-width:100%;"><img src="assets/foto2.webp" alt="Condor Lawn Services" style="width:100%;height:580px;object-fit:cover;display:block;"></div>
         <div style="min-width:100%;"><img src="assets/foto3.webp" alt="Condor Lawn Services" style="width:100%;height:580px;object-fit:cover;display:block;"></div>
+        <div style="min-width:100%;"><video src="assets/trabajo-1.mp4" style="width:100%;height:580px;object-fit:cover;display:block;" autoplay muted loop playsinline></video></div>
+        <div style="min-width:100%;"><video src="assets/trabajo-2.mp4" style="width:100%;height:580px;object-fit:cover;display:block;" autoplay muted loop playsinline></video></div>
       </div>
       <button onclick="galleryGo(-1)" style="position:absolute;top:50%;left:1rem;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:2;">&#8249;</button>
       <button onclick="galleryGo(1)"  style="position:absolute;top:50%;right:1rem;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:2;">&#8250;</button>
@@ -1064,7 +1066,7 @@
   function go(n){ cur=(n+total)%total; track.style.transform='translateX(-'+cur*100+'%)'; dotsEl.querySelectorAll('div').forEach((d,i)=>d.style.background=i===cur?'#2D6A4F':'rgba(0,0,0,.2)'); }
   window.galleryGo=n=>go(cur+n);
   go(0);
-  setInterval(()=>go(cur+1),4000);
+  setInterval(()=>go(cur+1),7000);
 })();
 </script>
 
@@ -1362,9 +1364,9 @@
       'svc1-title':'Mantenimiento de Jardín','svc1-desc':'Cuidado completo de tu grama, plantas, arbustos y jardines. Mantenemos tu propiedad verde y saludable todo el año.',
       'svc-popular':'Más solicitado',
       'svc2-title':'Reemplazo de Grama','svc2-desc':'Instalación y reemplazo profesional de grama para revitalizar completamente tu jardín. Resultado visible desde el primer día.',
-      'svc3-title':'Fertilización','svc3-desc':'Fertilización profesional para mantener tu grama verde, fuerte y resistente. Tratamiento adaptado al tipo de suelo de tu propiedad.',
+      'svc3-title':'Fertilización','svc3-desc':'Fertilización profesional para mantener tu grama verde, fuerte y resistente.',
       'svc4-title':'Diseño de Jardín','svc4-desc':'Diseñamos jardines a tu gusto y medida. Transformamos cualquier espacio en el jardín que siempre quisiste.',
-      'svc5-title':'Propiedades Comerciales','svc5-desc':'Servicio profesional para negocios, condominios y propiedades comerciales. Mantenemos la imagen de tu empresa impecable.',
+      'svc5-title':'Propiedades Comerciales','svc5-desc':'Servicio profesional para negocios, urbanizaciones y propiedades comerciales.',
       'svc6-title':'Propiedades Residenciales','svc6-desc':'Cuidamos tu hogar como si fuera el nuestro. Tu jardín es nuestra carta de presentación.',
       'why-tag':'¿Por qué elegirnos?','why-title':'Más que un servicio de jardín',
       'why-desc':'Somos un negocio familiar que empezó ayudando a sus vecinos — y esa misma dedicación la traemos a cada trabajo.',
@@ -1416,7 +1418,7 @@
       'svc1-title':'Lawn Maintenance','svc1-desc':'Complete care for your grass, plants, shrubs and gardens. We keep your property green and healthy year-round.',
       'svc-popular':'Most requested',
       'svc2-title':'Sod Replacement','svc2-desc':'Professional sod installation and replacement to completely revitalize your lawn. Visible results from day one.',
-      'svc3-title':'Fertilization','svc3-desc':'Professional fertilization to keep your lawn green, strong and resistant. Treatment adapted to your property\'s soil type.',
+      'svc3-title':'Fertilization','svc3-desc':'Professional fertilization to keep your lawn green, strong and resistant.',
       'svc4-title':'Garden Design','svc4-desc':'We design gardens to your taste and specifications. We transform any space into the garden you always wanted.',
       'svc5-title':'Commercial Properties','svc5-desc':'Professional service for businesses, condos and commercial properties. We keep your company\'s image spotless.',
       'svc6-title':'Residential Properties','svc6-desc':'We care for your home as if it were our own. Your lawn is our business card.',
