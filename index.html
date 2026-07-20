@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Condor Lawn Services LLC — Mantenimiento de jardines, reemplazo de grama, fertilización y más en Clermont, Orlando y Central Florida. Presupuesto gratis.">
   <title>Condor Lawn Services | Lawn Care Central Florida</title>
-  <link rel="icon" type="image/webp" href="assets/logo.webp">
+  <link rel="icon" type="image/png" href="Assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -873,6 +873,27 @@
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,.92); align-items: center; justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 92vw; max-height: 92vh; border-radius: 8px;
+      object-fit: contain; cursor: default;
+      box-shadow: 0 8px 48px rgba(0,0,0,.5);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.2rem; right: 1.4rem;
+      background: rgba(255,255,255,.15); border: none; border-radius: 50%;
+      width: 44px; height: 44px; color: #fff; font-size: 1.3rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,.3); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -901,7 +922,7 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo">
         <div class="nav-logo-icon">
-          <img src="assets/logo.webp" alt="Condor Lawn Services" style="width:100%;height:100%;object-fit:contain;">
+          <img src="Assets/logo.webp" alt="Condor Lawn Services" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <div class="nav-logo-text">
           <span class="name">Condor Lawn</span>
@@ -946,7 +967,7 @@
   <div class="container">
     <div style="display:flex;align-items:center;gap:3.5rem;">
       <div style="flex-shrink:0;">
-        <img src="assets/logo.webp" alt="Condor Lawn Services" style="width:480px;height:auto;display:block;border-radius:16px;background:#fff;padding:14px;box-shadow:0 8px 40px rgba(0,0,0,.4);">
+        <img src="Assets/logo.webp" alt="Condor Lawn Services" style="width:480px;height:auto;display:block;border-radius:16px;background:#fff;padding:14px;box-shadow:0 8px 40px rgba(0,0,0,.4);">
       </div>
       <div class="hero-content">
         <div class="hero-tag">
@@ -1068,7 +1089,24 @@
   function go(n){ cur=(n+total)%total; track.style.transform='translateX(-'+cur*100+'%)'; dotsEl.querySelectorAll('div').forEach((d,i)=>d.style.background=i===cur?'#2D6A4F':'rgba(0,0,0,.2)'); }
   window.galleryGo=n=>go(cur+n);
   go(0);
+
+  // Lightbox on image click
+  document.querySelectorAll('#galleryTrack img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+    });
+  });
 })();
+
+function closeLightbox(e) {
+  if (e.target === document.getElementById('lightbox'))
+    document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
 </script>
 
 <!-- ── WHY US ── -->
@@ -1309,7 +1347,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo.webp" alt="Condor Lawn Services" style="height:60px;width:auto;object-fit:contain;background:#fff;border-radius:10px;padding:4px;margin-bottom:.6rem;display:block;">
+        <img src="Assets/logo.webp" alt="Condor Lawn Services" style="height:60px;width:auto;object-fit:contain;background:#fff;border-radius:10px;padding:4px;margin-bottom:.6rem;display:block;">
         <div class="footer-logo-text">Condor Lawn Services LLC</div>
         <p class="footer-tagline" data-i18n="footer-tagline">Un servicio más allá de tus expectativas — porque entendemos tus necesidades y nos importa.</p>
         <a href="tel:3219480045" class="footer-contact-link">
@@ -1503,6 +1541,12 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open')" aria-label="Cerrar">✕</button>
+  <img id="lightboxImg" src="" alt="Foto ampliada">
+</div>
 
 <!-- ── WHATSAPP BUTTON ── -->
 <a href="https://wa.me/13219480045" target="_blank" rel="noopener" aria-label="WhatsApp" style="
