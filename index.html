@@ -1501,7 +1501,7 @@ document.addEventListener('keydown', e => {
     }
   };
 
-  let lang = 'es';
+  let lang = 'en';
 
   function applyLang(l) {
     lang = l;
@@ -1540,6 +1540,7 @@ document.addEventListener('keydown', e => {
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  applyLang('en');
 </script>
 
 <!-- LIGHTBOX -->
