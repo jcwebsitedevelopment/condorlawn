@@ -2,5 +2,5 @@ node_modules/
 docs/
 package.json
 package-lock.json
-*.jpeg
-*.jpg
+Assets/foto*.jpeg
+Assets/foto*.jpg
